@@ -1,49 +1,34 @@
 package maxmoto1702.skype.bot.plugin.utils
 
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import org.gradle.internal.impldep.org.apache.http.client.methods.HttpPost
+import org.gradle.internal.impldep.org.apache.http.entity.StringEntity
+import org.gradle.internal.impldep.org.apache.http.impl.client.HttpClients
+
 class BotUtils {
-    private final static INIT_ENDPOINT = '/api/deploy/init'
-    private final static START_ENDPOINT = '/api/deploy/start'
-    private final static FINISH_ENDPOINT = '/api/deploy/finish'
-    private final static WAITINGS_ENDPOINT = '/api/pauses'
+    private final static URL = 'https://serebryanskiy.site/skype-bot/'
+    private final static INIT_ENDPOINT = 'api/deploy/init'
+    private final static START_ENDPOINT = 'api/deploy/start'
+    private final static FINISH_ENDPOINT = 'api/deploy/finish'
+    private final static PAUSES_ENDPOINT = 'api/pauses'
 
-    static existsPauses = false
-
-    def invokeInit(message = null) {
-        println 'NotifyStart deploy'
+    static def invokeInit() {
+        HttpClients.createDefault()
+                .execute(new HttpPost("$URL$INIT_ENDPOINT"))
     }
 
-    def invokeStart(message = null) {
-        println 'Start deploy'
+    static def invokeStart() {
+        HttpClients.createDefault()
+                .execute(new HttpPost("$URL$START_ENDPOINT"))
     }
 
-    def invokeFinish(message = null) {
-        println 'Finish deploy'
+    static def invokeFinish(params = null) {
+        HttpClients.createDefault()
+                .execute(new HttpPost(URI: "$URL$FINISH_ENDPOINT".toURI(), entity: new StringEntity(JsonOutput.toJson([revision: params?.revision, commits: params?.commits]))))
     }
 
-    def listPauses() {
-        println 'Get pauses'
-        if (existsPauses) return []
-        existsPauses = true
-        [
-                [
-                        id      : 1,
-                        start   : System.currentTimeSeconds() - 5,
-                        expires : System.currentTimeSeconds() + 5,
-                        duration: 10,
-                        user    : [
-                                id  : 'test-user-1',
-                                name: 'Test User #1'
-                        ]
-                ], [
-                        id      : 1,
-                        start   : System.currentTimeSeconds() - 5,
-                        expires : System.currentTimeSeconds() + 10,
-                        duration: 15,
-                        user    : [
-                                id  : 'test-user-2',
-                                name: 'Test User #2'
-                        ]
-                ]
-        ]
+    static def listPauses() {
+        new JsonSlurper().parseText(new URL("$URL$PAUSES_ENDPOINT").text)
     }
 }
