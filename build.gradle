@@ -24,12 +24,15 @@ repositories {
 apply plugin: 'groovy'
 
 group = 'maxmoto1702.skype.bot'
-version = '1.0.0'
+version = '1.0.1'
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
     compile gradleApi()
     compile localGroovy()
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.1'
 
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'

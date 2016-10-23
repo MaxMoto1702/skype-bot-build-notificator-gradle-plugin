@@ -2,9 +2,9 @@ package maxmoto1702.skype.bot.plugin.utils
 
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-import org.gradle.internal.impldep.org.apache.http.client.methods.HttpPost
-import org.gradle.internal.impldep.org.apache.http.entity.StringEntity
-import org.gradle.internal.impldep.org.apache.http.impl.client.HttpClients
+import org.apache.http.client.methods.HttpPost
+import org.apache.http.entity.StringEntity
+import org.apache.http.impl.client.HttpClients
 
 class BotUtils {
     private final static URL = 'https://serebryanskiy.site/skype-bot/'
