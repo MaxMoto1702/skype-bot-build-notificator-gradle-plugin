@@ -1,7 +1,7 @@
-package maxmoto1702.skype.actions
+package maxmoto1702.skype.bot.plugin.actions
 
-import maxmoto1702.skype.SkypePlugin
-import maxmoto1702.skype.tasks.NotifyStart
+import maxmoto1702.skype.bot.plugin.SkypePlugin
+import maxmoto1702.skype.bot.plugin.tasks.NotifyStart
 import org.gradle.api.Action
 
 class NotifyStartAction implements Action<NotifyStart> {

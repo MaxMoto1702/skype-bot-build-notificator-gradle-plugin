@@ -1,4 +1,4 @@
-package maxmoto1702.skype.utils
+package maxmoto1702.skype.bot.plugin.utils
 
 class BotUtils {
     private final static INIT_ENDPOINT = '/api/deploy/init'

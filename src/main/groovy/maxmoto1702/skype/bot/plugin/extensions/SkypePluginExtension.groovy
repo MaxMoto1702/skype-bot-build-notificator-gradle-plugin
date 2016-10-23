@@ -1,4 +1,4 @@
-package maxmoto1702.skype.extensions
+package maxmoto1702.skype.bot.plugin.extensions
 
 class SkypePluginExtension {
     def Map recipient

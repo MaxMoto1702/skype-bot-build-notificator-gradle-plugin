@@ -1,7 +1,7 @@
-package maxmoto1702.skype.actions
+package maxmoto1702.skype.bot.plugin.actions
 
-import maxmoto1702.skype.SkypePlugin
-import maxmoto1702.skype.tasks.NotifyFinish
+import maxmoto1702.skype.bot.plugin.SkypePlugin
+import maxmoto1702.skype.bot.plugin.tasks.NotifyFinish
 import org.gradle.api.Action
 
 class NotifyFinishAction implements Action<NotifyFinish> {

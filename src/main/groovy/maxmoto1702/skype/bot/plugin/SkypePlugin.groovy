@@ -1,10 +1,10 @@
-package maxmoto1702.skype
+package maxmoto1702.skype.bot.plugin
 
-import maxmoto1702.skype.actions.NotifyFinishAction
-import maxmoto1702.skype.actions.NotifyStartAction
-import maxmoto1702.skype.extensions.SkypePluginExtension
-import maxmoto1702.skype.tasks.NotifyFinish
-import maxmoto1702.skype.tasks.NotifyStart
+import maxmoto1702.skype.bot.plugin.actions.NotifyFinishAction
+import maxmoto1702.skype.bot.plugin.actions.NotifyStartAction
+import maxmoto1702.skype.bot.plugin.extensions.SkypePluginExtension
+import maxmoto1702.skype.bot.plugin.tasks.NotifyFinish
+import maxmoto1702.skype.bot.plugin.tasks.NotifyStart
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.internal.tasks.TaskContainerInternal
