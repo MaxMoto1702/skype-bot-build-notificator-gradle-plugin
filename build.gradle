@@ -24,7 +24,7 @@ repositories {
 apply plugin: 'groovy'
 
 group = 'maxmoto1702.skype.bot'
-version = '1.0.2'
+version = '1.0.3'
 
 tasks.withType(GroovyCompile) {
     sourceCompatibility = JavaVersion.VERSION_1_7

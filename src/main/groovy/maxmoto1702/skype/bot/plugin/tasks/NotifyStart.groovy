@@ -12,7 +12,9 @@ class NotifyStart extends DefaultTask {
         while (pauses = BotUtils.listPauses()) {
             pauses.each { pause ->
                 println "User '${pause.user.name}' requested pause: ${pause.duration} seconds. Wait ${pause.expires - System.currentTimeSeconds()} seconds..."
-                sleep((pause.expires - System.currentTimeSeconds()) * 1_000)
+                if (pause.expires - System.currentTimeSeconds() > 0) {
+                    sleep((pause.expires - System.currentTimeSeconds()) * 1_000)
+                }
             }
         }
         BotUtils.invokeStart()
